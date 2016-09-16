@@ -15,6 +15,7 @@
 #endregion
 
 
+using System;
 using GammaJul.ReSharper.ForTea.Parsing;
 using JetBrains.Application.Progress;
 using JetBrains.Application.Settings;
@@ -74,8 +75,13 @@ namespace GammaJul.ReSharper.ForTea.Psi.CodeStyle {
 			return new TreeRange(firstElement, lastElement);
 		}
 
-		public T4CodeFormatter(ISettingsStore settingsStore) {            
-		}
+        public override void FormatReplacedRange(ITreeNode first, ITreeNode last, ITreeRange oldNodes)
+        {
+            // TODO: this body
+        }
+
+        public T4CodeFormatter(ISettingsStore settingsStore)
+        :base(null) {}
 
 	}
 

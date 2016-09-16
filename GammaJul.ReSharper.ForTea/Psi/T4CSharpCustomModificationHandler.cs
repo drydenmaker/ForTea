@@ -16,6 +16,7 @@
 
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using GammaJul.ReSharper.ForTea.Parsing;
 using GammaJul.ReSharper.ForTea.Psi.Directives;
@@ -356,12 +357,17 @@ namespace GammaJul.ReSharper.ForTea.Psi {
 			return context.GetSettingsStore().GetKey<StaticQualifierSettingsKey>(SettingsOptimization.OptimizeDefault);
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T4CSharpCustomModificationHandler"/> class.
-		/// </summary>
-		/// <param name="languageManager">The language manager.</param>
-		/// <param name="directiveInfoManager">An instance of <see cref="DirectiveInfoManager"/>.</param>
-		public T4CSharpCustomModificationHandler([NotNull] ILanguageManager languageManager, [NotNull] DirectiveInfoManager directiveInfoManager)
+        public IList<ITreeRange> GetHolderBlockRanges([NotNull] ITreeNode treeNode)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T4CSharpCustomModificationHandler"/> class.
+        /// </summary>
+        /// <param name="languageManager">The language manager.</param>
+        /// <param name="directiveInfoManager">An instance of <see cref="DirectiveInfoManager"/>.</param>
+        public T4CSharpCustomModificationHandler([NotNull] ILanguageManager languageManager, [NotNull] DirectiveInfoManager directiveInfoManager)
 			: base(languageManager) {
 			_directiveInfoManager = directiveInfoManager;
 		}

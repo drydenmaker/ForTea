@@ -14,6 +14,8 @@
 //    limitations under the License.
 #endregion
 
+using System;
+using System.Collections.Generic;
 using GammaJul.ReSharper.ForTea.Parsing;
 using GammaJul.ReSharper.ForTea.Psi.Directives;
 using JetBrains.Annotations;
@@ -22,6 +24,7 @@ using JetBrains.ReSharper.Psi.ExtensionsAPI.Caches2;
 using JetBrains.ReSharper.Psi.Impl;
 using JetBrains.ReSharper.Psi.Modules;
 using JetBrains.ReSharper.Psi.Parsing;
+using JetBrains.ReSharper.Psi.Tree;
 
 namespace GammaJul.ReSharper.ForTea.Psi {
 
@@ -62,11 +65,16 @@ namespace GammaJul.ReSharper.ForTea.Psi {
 			return new T4Parser(_t4Environment, _directiveInfoManager, lexer, sourceFile);
 		}
 
-		/// <summary>
-		/// Gets a cache provider for T4 files.
-		/// TODO: implement a cache provider
-		/// </summary>
-		public override ILanguageCacheProvider CacheProvider {
+        public override IEnumerable<ITypeDeclaration> FindTypeDeclarations(IFile file)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Gets a cache provider for T4 files.
+        /// TODO: implement a cache provider
+        /// </summary>
+        public override ILanguageCacheProvider CacheProvider {
 			get { return null; }
 		}
 
